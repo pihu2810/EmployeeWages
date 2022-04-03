@@ -9,8 +9,7 @@ public class EmpWageBuilder implements IComputeEmpWage
 	
 	static final int fullTime = 1;
 	static final int partTime = 2;
-	private static final Integer CompanyEmpWage = null;
-	private int numofCompany=0;
+	
      ArrayList<CompanyEmpWage> CompanyEmpWageList;
      HashMap<String, Integer>companyToEmpWagesMap;
 	public EmpWageBuilder()
@@ -22,8 +21,8 @@ public class EmpWageBuilder implements IComputeEmpWage
 	public void addCompanyEmpWage(String CompanyName, int Per_Hour_Salary, int Total_Working_Days,int Total_Working_hours) {
 		CompanyEmpWage  companyEmpWage=new CompanyEmpWage(CompanyName,Per_Hour_Salary, Total_Working_Days,Total_Working_hours);
 		CompanyEmpWageList.add(companyEmpWage);
-		companyToEmpWagesMap.put(CompanyName,CompanyEmpWage);
-		numofCompany++;
+		companyToEmpWagesMap.put(CompanyName,0);
+	
 	}
 	public void computeEmpWage() {
 		for(int i=0;i<CompanyEmpWageList.size();i++) {
@@ -33,7 +32,9 @@ public class EmpWageBuilder implements IComputeEmpWage
 		  
 		}
 	}
-	
+	public int getTotalWage(String CompanyName) {
+		return companyToEmpWagesMap.get(CompanyName);
+	}
 	private int computeEmpWage(CompanyEmpWage companyEmpWage) {
 		int TotalWorkingDays=0;
 		int Number_of_hours=0;
@@ -57,5 +58,13 @@ public class EmpWageBuilder implements IComputeEmpWage
 		}
 		return  Total_EmpHours*companyEmpWage.Per_Hour_Salary;
 	}
+
+	@Override
+	public int grtTotalEmpWage(String CompanyName) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 }
 
