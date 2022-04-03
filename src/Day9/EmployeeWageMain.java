@@ -11,6 +11,7 @@ public class EmployeeWageMain
 		empWageBuilder .addCompanyEmpWage("Apple",20,6,20);
 		empWageBuilder .addCompanyEmpWage("Amazon",20,8,20);
 		empWageBuilder.computeEmpWage();
+		System.out.println("Total Wage for Dmart Company: " +empWageBuilder.grtTotalEmpWage("Dmart"));
 	}
 
 }
